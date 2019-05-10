@@ -2,6 +2,6 @@
 /*
  * Template name: Store component
  *
- * @package fleurir
+ * @package enjoying-life
  * @author HiepTT
  */

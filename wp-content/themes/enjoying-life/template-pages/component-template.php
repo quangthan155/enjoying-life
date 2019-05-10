@@ -2,7 +2,7 @@
 /*
  * Template name: Component Template
  *
- * @package fleurir
+ * @package enjoying-life
  * @author HiepTT
  */
 

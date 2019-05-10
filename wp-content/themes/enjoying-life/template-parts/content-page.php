@@ -4,6 +4,6 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package fleurir
+ * @package enjoying-life
  */
 

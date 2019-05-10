@@ -1,0 +1,11 @@
+{
+  "name": "Setup Libraries",
+  "version": "1.0",
+  "author": "Tuan Nguyen <tuanna.fed@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "owl.carousel": "^2.3.4",
+    "gsap": "^2.0.2"
+  }
+}

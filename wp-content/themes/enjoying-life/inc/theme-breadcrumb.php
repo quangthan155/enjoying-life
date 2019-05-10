@@ -3,7 +3,7 @@
  * Breadcrumb
  *
  * @author DuNH
- * @package fleurir
+ * @package enjoying-life
  */
 
 class Breadcrumb {

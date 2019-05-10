@@ -6,5 +6,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package fleurir
+ * @package enjoying-life
  */
+get_header();
+
+get_footer();

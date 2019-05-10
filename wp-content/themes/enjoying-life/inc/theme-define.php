@@ -3,7 +3,8 @@
  * Theme define
  *
  * @author hiepTT
- * @package fleurir
+ * @package enjoying-life
  */
 
-define( 'TEXT_DOMAIN', 'fleurir' );
+define( 'THEME_NAME', 'enjoying-life' );
+define( 'OPTION_KEY', 'option' );
