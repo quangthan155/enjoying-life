@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'nb_okusukai_quangtn');
+define('DB_NAME', 'enjoying-life');
 
 /** MySQL database username */
-define('DB_USER', 'nb-administrator');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'k1dSn@wE6P@Ck');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', '172.20.0.101');
