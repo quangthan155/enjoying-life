@@ -81,7 +81,7 @@
 }
 
 @media only screen and (max-width: 991px) {
-	#header_menu{background:#00a99d url(../img/pattern_3.png) repeat;}
+	#header_menu{background:#00a99d;}
 	.main-menu ul li a:hover,
 	a.show-submenu:hover,
 	a.show-submenu:focus,
@@ -100,7 +100,7 @@
 		color:#ed5434;
 	}
 	#top_line {
-		background: #00a99d url(../img/pattern_3.png) repeat;
+		background: #00a99d repeat;
 	}
 	
 	.box_style_2 h3 {
@@ -147,7 +147,7 @@
 		background-color: #ed5434;
 	}
 	.banner {
-		background: #00a99d url(../img/pattern_3.png) repeat;
+		background: #00a99d repeat;
 	}
 	.panel-title a .indicator {
 		color: #00a99d;

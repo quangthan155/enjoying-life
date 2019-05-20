@@ -206,10 +206,10 @@ function check_data_empty( $obj ) {
 function insert_title_tag_output( $position ) {
 	check_data_empty( $position );
 	if ( is_home() || is_front_page() ) {
-		$logo_start = '<h1 class="c-header__logo">';
+		$logo_start = '<h1 id="logo_home">';
 		$logo_end   = '</h1>';
 	} else {
-		$logo_start = '<h2 class="c-header__logo">';
+		$logo_start = '<h2 id="logo_home">';
 		$logo_end   = '</h2>';
 	}
 

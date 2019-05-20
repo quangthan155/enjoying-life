@@ -9,18 +9,25 @@
  * @package enjoying-life
  */
 // General settings 
-$general    = get_field('general_settings' , OPTION_KEY);
-$favicon    = $general[ 'favicon' ];
+$prefix 	    = get_device_prefix();
+$general_st     = get_field('general_settings' , OPTION_KEY);
+$favicon        = $general_st[ 'favicon' ];
+$logo           = $general_st[ 'logo_header' . $prefix ];
+$phone          = $general_st[ 'phone' ];
+$open_time      = $general_st[ 'open_time' ];
+$page_title     = get_page_title();
 
 // Header settings 
-$today = date("d/m/Y"); 
+$header         = get_field('header_settings' , OPTION_KEY);
+$title          = $header[ 'title_banner' . $prefix ];
+$subtitle       = $header[ 'subtitle_banner' . $prefix ];
 ?>
 
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-    <title><?php wp_title('') ?></title>
+    <title><?php echo $page_title ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +45,7 @@ $today = date("d/m/Y");
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> style="overflow: visible;">
+<body style="overflow: visible;">
 	<!--[if lte IE 8]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
     <![endif]-->
@@ -58,7 +65,7 @@ $today = date("d/m/Y");
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <a href="tel://004542344599" id="phone_top">0045 043204434</a><span id="opening">Mon - Sat 8.00/18.00</span>
+                            <a href="tel://004542344599" id="phone_top"><?php echo $phone ?></a><span id="opening"><?php echo $open_time ?></span>
                         </div>
                         <div class="col-md-6 col-sm-6 hidden-xs">
                             <ul id="top_links">
@@ -78,12 +85,13 @@ $today = date("d/m/Y");
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-3">
-                        <div id="logo_home">                        
+                        <a href="/">
                             <?php insert_title_tag_output( 'start' ); ?>
-                            <a href="/" title="">Enjoying life</a>
+                            <img src="<?php echo $logo['url'] ?>">
                             <?php insert_title_tag_output( 'end' ); ?>
-                        </div>
-                    </div>
+                        </a>
+                    </div>                      
+                            
                     <nav class="col-md-9 col-sm-9 col-xs-9">
                         <ul id="tools_top">
                             <li><a class="search-overlay-menu-btn"><i class="icon-search-6"></i></a>
@@ -107,17 +115,19 @@ $today = date("d/m/Y");
     </div>
     <!-- End Header 1-->
 
-	<!-- SubHeader =============================================== -->
-	<section class="header-video" style="width: 1840px; height: 718.75px;">
+    <!-- SubHeader =============================================== -->
+	<section class="header-video" >
 		<div id="hero_video">
 			<div id="animate_intro" class="animated fadeInUp">
-				<h3>Enjoy a Perfect Tour</h3>
+				<h3><?php echo $title ?></h3>
 				<p>
-					Find the best Tours and Excursion at the best price
+                <?php echo $subtitle ?>
 				</p>
 			</div>
 		</div>
-		<img src="<?php echo get_template_directory_uri() . '/assets/images/video_fix.png '?>" alt="" class="header-video--media" data-video-src="<?php echo get_template_directory_uri() . '/assets/video/intro.mp4' ?>" data-teaser-source="./assets/video/intro" data-provider="" data-video-width="1920" data-video-height="750" style="display: none;">
-	<video autoplay="true" loop="loop" muted="" id="teaser-video" class="teaser-video"><source src="<?php echo get_template_directory_uri() . '/assets/video/intro.mp4'?>" type="video/mp4"><source src="./assets/video/intro.ogv" type="video/ogg"></video></section>
+		<img src="<?php echo get_template_directory_uri() . '/assets/images/video_fix.png '?>" alt="" class="header-video--media" data-video-src="<?php echo get_template_directory_uri() . '/assets/video/intro.mp4' ?>" data-teaser-source="<?php echo get_template_directory_uri() . '/assets/video/intro' ?>" data-provider="" data-video-width="1920" data-video-height="750" style="display: none;">
+	<video autoplay="true" loop="loop" muted="" id="teaser-video" class="teaser-video"><source src="<?php echo get_template_directory_uri() . '/assets/video/intro.mp4'?>" type="video/mp4"></video></section>
 	<!-- End Header video -->
-	<!-- End SubHeader ============================================ -->
+    <!-- End SubHeader ============================================ -->
+
+    

@@ -136,9 +136,9 @@ function get_primary_menu()
 {
 	wp_nav_menu(array(
 		'theme_location' => 'primary',
-		'depth' => 1, // 1 = no dropdowns, 2 = with dropdowns.
+		'depth' => 2, // 1 = no dropdowns, 2 = with dropdowns.
 		'container' => 'ul',
-		'menu_class' => 'menu',
+		'menu_class' => '',
 		'walker' => new WPCustomWalkerNavMenu(),
 	));
 }
@@ -295,6 +295,24 @@ function get_posts_by_category_name($category_name, $numberposts)
 	return get_posts($defaults);
 }
 
+function get_tours_by_category_name($category_name, $numberposts)
+{
+	$defaults = array(
+		'numberposts'      => $numberposts,
+		'category_name'    => $category_name,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'include'          => array(),
+		'exclude'          => array(),
+		'meta_key'         => '',
+		'meta_value'       => '',
+		'post_type'        => 'tours',
+		'suppress_filters' => true,
+	);
+
+	return get_posts($defaults);
+}
+
 function get_page_title() {
 	$page_title         = get_field( 'page_title' , get_the_ID() );
 	$page_description   = get_field( 'page_description' , get_the_ID() );
@@ -315,3 +333,26 @@ function get_page_title() {
 	
 	return $page_title;
 }
+
+
+// Register Custom Post Types
+
+function register_custom_posts_init() {
+    // Register Tours
+    $products_labels = array(
+        'name'               => 'Tour',
+        'singular_name'      => 'Tour',
+        'menu_name'          => 'All Tours'
+    );
+    $products_args = array(
+        'labels'             => $products_labels,
+        'public'             => true,
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+		'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ),
+		'menu_position'      => 4,
+		'taxonomies' => array( 'category', 'post_tag' ),
+    );
+    register_post_type('tours', $products_args);
+}
+add_action('init', 'register_custom_posts_init');
